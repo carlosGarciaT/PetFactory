@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PetFactoryService } from './pet-factory.service';
+import { Pet } from './pet.model';
 
 @Component({
-  selector: 'lib-PetFactory',
+  selector: 'lib-petfactory',
   template: `
     <p>
-      pet-factory works!
+      Se ha insertado la nueva mascota
     </p>
   `,
   styles: [
@@ -12,7 +14,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetFactoryComponent implements OnInit {
 
-  constructor() { }
+  @Input() newPet: Pet;
+
+  constructor(private petFactoryService: PetFactoryService) {
+    this.petFactoryService.createPet(this.newPet);
+   }
 
   ngOnInit(): void {
   }
