@@ -27,6 +27,6 @@ export class PetFactoryComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.petFactoryService.createPet(this.newPet).subscribe();
+    this.petFactoryService.createPet(this.newPet);
   }
 }
