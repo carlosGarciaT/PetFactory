@@ -30,7 +30,7 @@ export class PetFactoryService {
     })
       .then((response) => {
         console.log('response =', response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           alert('Se ha insertado correctamente');
         }
         return response.json();
