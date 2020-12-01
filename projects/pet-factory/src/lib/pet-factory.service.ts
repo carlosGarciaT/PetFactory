@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class PetFactoryService {
   url: string;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.url = 'https://petstore.swagger.io/v2/';
   }
 
