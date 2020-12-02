@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 // import { HttpClient } from '@angular/common/http';
 // import { Observable } from 'rxjs';
 
@@ -18,8 +19,8 @@ export class PetFactoryService {
   //   return this.http.post(this.url + 'pet', params, { headers: headers });
   // }
 
-  createPet(pet): void {
-    console.log(pet);
+  createPet(pet): number {
+    let status: number;
     const params = JSON.stringify(pet);
     fetch(this.url + 'pet', {
       method: 'POST',
@@ -31,12 +32,14 @@ export class PetFactoryService {
       .then((response) => {
         console.log('response =', response);
         if (response.status === 200) {
-          alert('Se ha insertado correctamente');
+          status = 1;
         }
         return response.json();
       })
       .catch((err) => {
         console.error(err);
+        status = 2;
       });
+    return status;
   }
 }

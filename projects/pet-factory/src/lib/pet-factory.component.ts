@@ -21,12 +21,18 @@ import { Pet } from './pet.model';
 })
 export class PetFactoryComponent implements OnInit {
   @Input() newPet: Pet;
+  status: number;
 
   constructor(private petFactoryService: PetFactoryService) {}
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.petFactoryService.createPet(this.newPet);
+    this.status = this.petFactoryService.createPet(this.newPet);
+    if (this.status === 1) {
+      alert('Se ha insertado correctamente la mascota');
+    } else {
+      alert('No se ha insertado correctamente la mascota');
+    }
   }
 }
