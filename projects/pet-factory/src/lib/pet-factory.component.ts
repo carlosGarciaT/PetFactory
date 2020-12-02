@@ -29,7 +29,7 @@ export class PetFactoryComponent implements OnInit {
 
   onSubmit(): void {
     this.status = this.petFactoryService.createPet(this.newPet);
-    if (this.status === 1) {
+    if ((this.status = 1)) {
       alert('Se ha insertado correctamente la mascota');
     } else {
       alert('No se ha insertado correctamente la mascota');
